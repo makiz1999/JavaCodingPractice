@@ -1,0 +1,96 @@
+public class HW1 {
+
+    public static void main(String[] args){
+    Hamburger hamburger = new Hamburger("White", "Chicken", 3);
+    hamburger.setLettuce(0.50);
+    hamburger.setOnion(0.30);
+    System.out.println("Price of your hamburger is: $" + hamburger.getPrice());
+
+    HealthyBurger healthyBurger = new HealthyBurger("Pork", 4);
+    healthyBurger.setCarrot(0.60);
+    healthyBurger.setBroccoli(0.70);
+    System.out.println("Price of your hamburger is $" + healthyBurger.getPrice());
+
+    DeluxeHambgurger deluxeHambgurger = new DeluxeHambgurger("Dark", "Lamp", 6);
+    System.out.println("Price of your deluxe hamburger is: $" + deluxeHambgurger.getPrice());
+    }
+}
+
+public class Hamburger {
+    private String breadType;
+    private String meat;
+    public double price;
+    private double lettuce;
+    private double tomato;
+    private double onion;
+    private double pepper;
+
+    public Hamburger(String breadType, String meat, double price) {
+        this.breadType = breadType;
+        this.meat = meat;
+        this.price = price;
+    }
+
+    public void setLettuce(double lettuce) {
+        this.lettuce = lettuce;
+        price += lettuce;
+        System.out.println("Lettuce has been added");
+    }
+    public void setTomato(double tomato) {
+        this.tomato = tomato;
+        price += tomato;
+        System.out.println("Tomato has been added");
+    }
+
+    public void setOnion(double onion) {
+        this.onion = onion;
+        price += onion;
+        System.out.println("Onion has been added");
+    }
+
+    public void setPepper(double pepper) {
+        this.pepper = pepper;
+        price += pepper;
+        System.out.println("Pepper has been added");
+    }
+
+    public double getPrice() {
+        return price;
+    }
+}
+
+public class HealthyBurger extends Hamburger{
+    private double broccoli;
+    private double carrot;
+
+    public HealthyBurger(String meat, int price) {
+        super("Brown rye", meat, price);
+    }
+
+    public void setBroccoli(double broccoli) {
+        this.broccoli = broccoli;
+        price += broccoli;
+        System.out.println("Broccoli has been added");
+    }
+    public void setCarrot(double carrot){
+        this.carrot = carrot;
+        price += carrot;
+        System.out.println("Carrot has been added");
+    }
+}
+
+public class DeluxeHambgurger extends Hamburger{
+    private double chips = 1.00;
+    private double drink = 0.50;
+
+    public DeluxeHambgurger(String breadType, String meat, double price) {
+        super(breadType, meat, price);
+        price += chips;
+        price += drink;
+    }
+
+    @Override
+    public double getPrice() {
+        return super.getPrice();
+    }
+}
